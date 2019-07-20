@@ -1,0 +1,36 @@
+MySQL
+-服务器或者本机
+
+Naviat
+
+127.0.0.1
+
+
+SQL语句
+
+Select：查询select * from StudentInfo where id = 1
+
+
+Delete：删除delete from Student where id = 2
+Update：更新update StudentInfo Set name = 'Tom' Where id = 1;
+Insert：插入Insert Into StudentInfo Values(3,"Peter");
+
+
+
+要在python中使用MySQL的话，需要引入一个模块：
+import pymysql
+
+1.跟数据库建立连接
+连接名：IP：端口号(127.0.0.1:3306)，数据库用户名，密码，数据库名（Student）
+db = pymysql.connect(conn, usr, pwd, db_name)
+
+2.建立一个游标
+        cursor = db.cursor()
+3.通过游标执行SQL语句
+cursor.execute(sql)
+4.获取数据
+res = cursor.fetchall()
+res通常情况下是tuple
+在业务层面，对这个res进行处理
+
+
